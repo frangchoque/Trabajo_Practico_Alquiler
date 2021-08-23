@@ -11,6 +11,11 @@ typedef enum {
 	Auto=1, Moto, Camioneta, Bicicleta
 }eVehiculo;
 
+/*
+enum class eColor{Negro, Blanco, Azul, Rojo, Gris}
+enum class eVehiculo{Auto, Moto, Camioneta, Bicicleta}
+*/
+
 string tm_to_string(tm fecha)
 {
 	return to_string(fecha.tm_mday) + "/" + to_string(fecha.tm_mon) + "/" + to_string(fecha.tm_year) + "/";
