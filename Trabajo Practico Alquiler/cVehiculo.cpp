@@ -1,4 +1,5 @@
 #include "cVehiculo.h"
+
 cVehiculo::cVehiculo(int cantp,eVehiculo tipo_vehiculo , eColor color)
 {
 	this->Tipo_Vehiculo = tipo_vehiculo;

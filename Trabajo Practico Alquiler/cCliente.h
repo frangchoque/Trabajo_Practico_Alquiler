@@ -9,7 +9,7 @@ class cCliente
 {
 public:
 	cCliente(string , tm , string , string , float , string , unsigned short int);
-	virtual ~cCliente();
+	virtual ~cCliente();//¿Borrar el virtual?
 	
 
 	void Imprimir();
@@ -23,6 +23,6 @@ private:
 	string Nombre;
 	float Plata;
 	string Telefono;
-	unsigned short int Tipo_Vehiculo;
+	eVehiculo Tipo_Vehiculo;
 };
 

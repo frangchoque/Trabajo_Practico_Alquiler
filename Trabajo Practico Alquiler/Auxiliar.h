@@ -24,13 +24,13 @@ string Vehiculo_to_string(eVehiculo vehiculo)
 {
 	switch (vehiculo)
 	{
-	case 1:
+	case eVehiculo::Auto:
 		return "Auto";
-	case 2:
+	case eVehiculo::Moto:
 		return "Moto";
-	case 3:
+	case eVehiculo::Camioneta:
 		return "Camioneta";
-	case 4:
+	case eVehiculo::Bicicleta:
 		return "Bicicleta";
 	}
 }
@@ -47,15 +47,15 @@ string Color_to_string(eColor color)
 {
 	switch (color)
 	{
-	case 1:
+	case eColor::Negro:
 		return "Negro";
-	case 2:
+	case eColor::Blanco:
 		return "Blanco";
-	case 3:
+	case eColor::Azul:
 		return "Azul";
-	case 4:
+	case eColor::Rojo:
 		return "Rojo";
-	case 5:
+	case eColor::Gris:
 		return "Gris";
 	}
 }

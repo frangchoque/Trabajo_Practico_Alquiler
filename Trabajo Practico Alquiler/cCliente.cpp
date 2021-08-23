@@ -8,7 +8,7 @@ cCliente::cCliente(string DNI, tm fecha_nacimiento, string mail, string nombre, 
     Nombre = nombre;
     Plata = plata;
     Telefono = telefono;
-    Tipo_Vehiculo = tipo_vehiculo;
+    eVehiculo:Vehiculo:tipo_vehiculo;
 }
 
 cCliente::~cCliente()

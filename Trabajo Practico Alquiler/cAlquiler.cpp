@@ -1,5 +1,6 @@
 #include "cAlquiler.h"
 
+
 cAlquiler::cAlquiler(string id)
 {
 	this->ID = id;
@@ -20,6 +21,23 @@ void cAlquiler::CalcularMontoTotal()
 	Monto_total = vehiculo->getPrecioBase() + (vehiculo->getPrecioDia() * vehiculo->getCantp());
 }
 
+void cAlquiler::ElegirAuto(cVehiculo vehiculo)
+{
+}
+
+void cAlquiler::FinalizarAlquiler(tm Fecha)
+{
+}
+
+void cAlquiler::Imprimir()
+{
+}
+
+string cAlquiler::to_string()
+{
+	return string();
+}
+
 cCliente* cAlquiler::getCliente()
 {
 	return this->cliente;
@@ -32,5 +50,5 @@ void cAlquiler::setPagado()
 
 unsigned int cAlquiler::CalcularDias()
 {
-	
+	return 0;
 }

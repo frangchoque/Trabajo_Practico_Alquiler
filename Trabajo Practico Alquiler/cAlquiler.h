@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
-#include "Auxiliar.h"
-#include "cVehiculo.h"
-#include "cCliente.h"
 
+#include "cVehiculo.h"
+//#include "cCliente.h"
+class cCliente;
 using namespace std;
 
 class cAlquiler//Cuando devuelve el vehiculo, quien tiene el metodo, ¿alquiler, vehiculo o cliente?¿O se lo reparten para que cada uno haga algo?
