@@ -20,7 +20,7 @@ string tm_to_string(tm fecha)
 {
 	return to_string(fecha.tm_mday) + "/" + to_string(fecha.tm_mon) + "/" + to_string(fecha.tm_year) + "/";
 }
-string Vehiculo_to_string(unsigned short int vehiculo)
+string Vehiculo_to_string(eVehiculo vehiculo)
 {
 	switch (vehiculo)
 	{
@@ -35,7 +35,15 @@ string Vehiculo_to_string(unsigned short int vehiculo)
 	}
 }
 
-string Color_to_string(unsigned short int color)
+string bool_to_string(bool booleano)
+{
+	if (booleano == true)
+		return "Si";
+	else
+		return "No";
+}
+
+string Color_to_string(eColor color)
 {
 	switch (color)
 	{

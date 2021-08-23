@@ -17,7 +17,7 @@ void cVehiculo::DevolverVehiculo()
 	VerificacionSeguridad_Pendiente();
 }
 
-void cVehiculo::AqluilarVehiculo()
+void cVehiculo::AlquilarVehiculo()
 {
 	Alquiler = true;
 
@@ -30,8 +30,8 @@ void cVehiculo::VerificacionSeguridad()
 
 void cVehiculo::VerificacionSeguridad_Pendiente()
 {
-	Verificado = false;
-	cout << "\n Se debe realizar la verificacion de seguridad del Vehiculo.";
+	Verificado = false;//Lo dejo comentado porque en la consigna no dice que deba imprimir un mensaje
+	//cout << "\n Se debe realizar la verificacion de seguridad del Vehiculo.";
 }
 
 float cVehiculo::CalcularPrecioporDia(eVehiculo v)
@@ -84,4 +84,17 @@ float cVehiculo::getPrecioDia()
 
 cVehiculo::~cVehiculo()
 {
+}
+
+string cVehiculo::to_string()
+{
+	string aux = "\nPatente: " + this->Patente + "\nTipo de vehiculo: " + Vehiculo_to_string(Tipo_Vehiculo) + "\nColor: " + Color_to_string(this->Color) +
+		"\nCantidad de pasajeros: " + std::to_string(this->CantPasajeros) + "\nPrecio base: " + std::to_string(this->PrecioBase) + "\n Precio dia: "
+		+ std::to_string(this->PrecioDia) + "\nAlquilado: " + bool_to_string(this->Alquiler) + "\nVerificacion de seguridad: " + bool_to_string(this->Verificado);
+	return aux;
+}
+
+void cVehiculo::Imprimir()
+{
+	cout << this->to_string() << endl;
 }

@@ -16,7 +16,7 @@ class cVehiculo
 public:
 	cVehiculo (int cantp,eVehiculo tipo_vehiculo, eColor color);
 	void DevolverVehiculo();
-	void AqluilarVehiculo();
+	void AlquilarVehiculo();
 	void VerificacionSeguridad();
 	void VerificacionSeguridad_Pendiente();
 	float CalcularPrecioporDia(eVehiculo v);
@@ -25,5 +25,7 @@ public:
 	float getPrecioBase();
 	float getPrecioDia();
 	~cVehiculo();
+	string to_string();
+	void Imprimir();
 
 };

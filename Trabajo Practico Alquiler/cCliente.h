@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 class cAlquiler;
+#include "cAlquiler.h"
 using namespace std;
 
 class cCliente

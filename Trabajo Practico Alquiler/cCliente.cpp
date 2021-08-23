@@ -20,13 +20,16 @@ void cCliente::Imprimir()
     cout <<to_string() << endl;
 }
 
-void cCliente::Pagar(cAlquiler* Alquiler)
+void cCliente::Pagar(cAlquiler* Alquiler)//Acordarse de hacer un método en alquiler que verifique que el cliente pueda pagar
 {
+    if (this->DNI == Alquiler->getCliente()->DNI)
+        Alquiler->setPagado();
 }
 
 string cCliente::to_string()
 {
-    string aux, oracion;
-
-    return string();
+    string oracion;
+    oracion = "\nNombre: " + this->Nombre + "\nDNI: " + this->DNI + "\nMail: " + this->Mail + "\nTelefono: " + this->Telefono + "\nPlata: "+
+        std::to_string(this->Plata) + "\nTipo de vehiculo: " + Vehiculo_to_string(this->Tipo_Vehiculo);
+    return oracion;
 }
