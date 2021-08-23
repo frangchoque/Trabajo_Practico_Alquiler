@@ -6,7 +6,7 @@ cVehiculo::cVehiculo(int cantp,eVehiculo tipo_vehiculo , eColor color)
 	Patente = GenerarPatente();
 	this->CantPasajeros = cantp;
 	PrecioBase = 1000;
-	PrecioDia = 0;
+	PrecioDia = CalcularPrecioporDia(tipo_vehiculo);
 	Alquiler = false;
 	Verificado = true;
 }
@@ -64,6 +64,8 @@ string cVehiculo::GenerarPatente()
 	int aux3 = (rand() % 5) + 1;
 	return aux = "ABC" + aux1 + aux2 + aux3;
 }
+
+
 
 int cVehiculo::getCantp()
 {
