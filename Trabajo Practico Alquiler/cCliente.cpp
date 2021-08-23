@@ -1,5 +1,5 @@
 #include "cCliente.h"
-#include "Auxiliar.h"
+//#include "Auxiliar.h"
 cCliente::cCliente(string DNI, tm fecha_nacimiento, string mail, string nombre, float plata, string telefono, unsigned short int tipo_vehiculo)
 {
     this->DNI = DNI;

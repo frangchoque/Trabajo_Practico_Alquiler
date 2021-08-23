@@ -1,8 +1,9 @@
 #pragma once
 #include <string>
 #include <iostream>
-class cAlquiler;
+//class cAlquiler;
 #include "cAlquiler.h"
+#include "Auxiliar.h"
 using namespace std;
 
 class cCliente

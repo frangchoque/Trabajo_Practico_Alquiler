@@ -1,8 +1,9 @@
 #pragma once
 #include <string>
 
-#include "cVehiculo.h"
+#include "cVehiculo.h"//Si lo saco y pongo forward declaration los errores desaparecen pero surgen problemas en cAlquiler.cpp
 //#include "cCliente.h"
+//class cVehiculo;
 class cCliente;
 using namespace std;
 
