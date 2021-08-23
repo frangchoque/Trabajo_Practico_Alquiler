@@ -1,13 +1,21 @@
 #pragma once
 #include <string>
+#include "Auxiliar.h"
+#include "cVehiculo.h"
 #include "cCliente.h"
 
 using namespace std;
 
 class cAlquiler
 {
+	cCliente* cliente;
+	tm Fecha_Devolucion;
+	string ID;
+	unsigned int Monto_total;
+	bool Pagado;
+	cVehiculo* vehiculo;
 public:
-	cAlquiler();
+	cAlquiler(string id);
 	virtual ~cAlquiler();
 
 	void CalcularMontoTotal();
@@ -16,12 +24,6 @@ public:
 	void Imprimir();
 	string to_string();
 
-private:
-	cCliente* cliente;
 
-	tm Fecha_Devolucion;
-	string ID;
-	unsigned int Monto_total;
-	bool Pagado;
 };
 

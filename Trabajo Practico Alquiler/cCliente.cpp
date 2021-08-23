@@ -17,7 +17,7 @@ cCliente::~cCliente()
 
 void cCliente::Imprimir()
 {
-    cout << this->to_string() << endl;
+    cout <<to_string() << endl;
 }
 
 void cCliente::Pagar(cAlquiler* Alquiler)

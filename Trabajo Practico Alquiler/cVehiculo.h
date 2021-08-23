@@ -14,12 +14,16 @@ class cVehiculo
 	bool Alquiler;//true:alquilado , false: no oesta alquilado
 	bool Verificado; //true: tiene la verificacion de seguridad, false: no
 public:
-	cVehiculo(eVehiculo Tipo_Vehiculo, eColor Color, int cantp);
+	cVehiculo (int cantp,eVehiculo tipo_vehiculo, eColor color);
 	void DevolverVehiculo();
 	void AqluilarVehiculo();
 	void VerificacionSeguridad();
 	void VerificacionSeguridad_Pendiente();
+	float CalcularPrecioporDia(eVehiculo v);
 	string GenerarPatente();
+	int getCantp();
+	float getPrecioBase();
+	float getPrecioDia();
 	~cVehiculo();
 
 };

@@ -3,18 +3,18 @@
 
 using namespace std;
 
-typedef enum {
-	Negro = 1, Blanco, Azul, Rojo, Gris
-}eColor;
+//typedef enum {
+//	Negro = 1, Blanco, Azul, Rojo, Gris
+//}eColor;
+//
+//typedef enum {
+//	Auto=1, Moto, Camioneta, Bicicleta
+//}eVehiculo;
 
-typedef enum {
-	Auto=1, Moto, Camioneta, Bicicleta
-}eVehiculo;
 
-/*
-enum class eColor{Negro, Blanco, Azul, Rojo, Gris}
-enum class eVehiculo{Auto, Moto, Camioneta, Bicicleta}
-*/
+enum class eColor { Negro, Blanco, Azul, Rojo, Gris }; typedef eColor Color;
+enum class eVehiculo { Auto, Moto, Camioneta, Bicicleta }; typedef eVehiculo Vehiculo;
+
 
 string tm_to_string(tm fecha)
 {
