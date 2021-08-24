@@ -83,6 +83,21 @@ float cVehiculo::getPrecioDia()
 	return PrecioDia;
 }
 
+bool cVehiculo::getEstado_de_Alquiler()
+{
+	return Alquiler;
+}
+
+bool cVehiculo::getEstado_de_Verificacion()
+{
+	return Verificado;
+}
+
+void cVehiculo::setEstado_de_Alquiler(bool algo)
+{
+	Alquiler = algo;
+}
+
 cVehiculo::~cVehiculo()
 {
 }

@@ -1,6 +1,6 @@
 #include "cCliente.h"
 //#include "Auxiliar.h"
-cCliente::cCliente(string DNI, tm fecha_nacimiento, string mail, string nombre, float plata, string telefono, unsigned short int tipo_vehiculo)
+cCliente::cCliente(string DNI, tm fecha_nacimiento, string mail, string nombre, float plata, string telefono, eVehiculo tipo)
 {
     this->DNI = DNI;
     Fecha_Nacimiento = fecha_nacimiento;
@@ -8,11 +8,8 @@ cCliente::cCliente(string DNI, tm fecha_nacimiento, string mail, string nombre, 
     Nombre = nombre;
     Plata = plata;
     Telefono = telefono;
-    eVehiculo:Vehiculo:tipo_vehiculo;
-}
-
-cCliente::~cCliente()
-{
+    Tipo_Vehiculo = tipo;
+    ID_Alquiler = "0";
 }
 
 void cCliente::Imprimir()
@@ -26,10 +23,39 @@ void cCliente::Pagar(cAlquiler* Alquiler)//Acordarse de hacer un método en alqui
         Alquiler->setPagado();
 }
 
+void cCliente::AlquilarVehiculo(cAlquiler* alquiler)
+{
+    alquiler->ElegirAuto(this->Tipo_Vehiculo);
+
+}
+
+void cCliente::setID(string id)
+{
+    ID_Alquiler = id;
+}
+
+void cCliente::AsociarAlquiler(cAlquiler* alquiler)
+{
+    if (alquiler != NULL) {
+        setID(alquiler->getID());
+    }
+}
+
+
+
 string cCliente::to_string()
 {
     string oracion;
     oracion = "\nNombre: " + this->Nombre + "\nDNI: " + this->DNI + "\nMail: " + this->Mail + "\nTelefono: " + this->Telefono + "\nPlata: "+
         std::to_string(this->Plata) + "\nTipo de vehiculo: " + Vehiculo_to_string(this->Tipo_Vehiculo);
     return oracion;
+}
+
+eVehiculo cCliente::getTipoVehiculo()
+{
+    return Tipo_Vehiculo;
+}
+
+cCliente::~cCliente()
+{
 }

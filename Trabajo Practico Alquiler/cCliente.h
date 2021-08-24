@@ -8,15 +8,6 @@ using namespace std;
 
 class cCliente
 {
-public:
-	cCliente(string , tm , string , string , float , string , unsigned short int);
-	virtual ~cCliente();//¿Borrar el virtual?
-	
-
-	void Imprimir();
-	void Pagar(cAlquiler* Alquiler);
-	string to_string();
-
 private:
 	string DNI;
 	tm Fecha_Nacimiento;
@@ -25,5 +16,18 @@ private:
 	float Plata;
 	string Telefono;
 	eVehiculo Tipo_Vehiculo;
+	string ID_Alquiler;//para verificar que el alquiler coincide con el cliente 
+
+public:
+	cCliente(string , tm , string , string , float , string , eVehiculo tipo);
+	void Imprimir();
+	void Pagar(cAlquiler* Alquiler);
+	void AlquilarVehiculo(cAlquiler* alquiler);
+	void setID(string id);
+	void AsociarAlquiler(cAlquiler* alquiler);
+	string to_string();
+ eVehiculo getTipoVehiculo();//despues borrar
+	~cCliente();//¿Borrar el virtual? si , no vimos polimorfismo todavia 
+
 };
 

@@ -24,8 +24,10 @@ public:
 	int getCantp();
 	float getPrecioBase();
 	float getPrecioDia();
-	~cVehiculo();
+	bool getEstado_de_Alquiler();
+	bool getEstado_de_Verificacion();
+	void setEstado_de_Alquiler(bool algo);
 	string to_string();
 	void Imprimir();
-
+	~cVehiculo();
 };
