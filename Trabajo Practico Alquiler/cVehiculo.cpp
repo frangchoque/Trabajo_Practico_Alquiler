@@ -93,9 +93,9 @@ bool cVehiculo::getEstado_de_Verificacion()
 	return Verificado;
 }
 
-void cVehiculo::setEstado_de_Alquiler(bool algo)
+void cVehiculo::setEstado_de_Alquiler(bool Estado)
 {
-	Alquiler = algo;
+	Alquiler = Estado;
 }
 
 cVehiculo::~cVehiculo()

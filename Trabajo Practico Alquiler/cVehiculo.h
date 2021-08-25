@@ -26,7 +26,7 @@ public:
 	float getPrecioDia();
 	bool getEstado_de_Alquiler();
 	bool getEstado_de_Verificacion();
-	void setEstado_de_Alquiler(bool algo);
+	void setEstado_de_Alquiler(bool Estado);
 	string to_string();
 	void Imprimir();
 	~cVehiculo();

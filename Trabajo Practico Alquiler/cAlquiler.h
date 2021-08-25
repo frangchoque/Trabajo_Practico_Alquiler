@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 #include "cVehiculo.h"//Si lo saco y pongo forward declaration los errores desaparecen pero surgen problemas en cAlquiler.cpp
 //#include "cCliente.h"
@@ -13,15 +14,16 @@ class cAlquiler//Cuando devuelve el vehiculo, quien tiene el metodo, ¿alquiler, 
 	tm Fecha_Devolucion;
 	tm Fecha_Alquiler;
 	string ID;//numero de alquiler
-	unsigned int Monto_total;
+	float Monto_total;
 	bool Pagado;
 	cVehiculo* Vehiculo;
 public:
 	cAlquiler(string id);
 	virtual ~cAlquiler();
 	void CalcularMontoTotal();
-	void ElegirAuto(eVehiculo vehiculo);
-	void FinalizarAlquiler(tm Fecha);//si la fecha de hoy coincide con tm fecha_devolucion se termina el alquiler
+	bool ElegirAuto(eVehiculo vehiculo);
+	void IniciarAlquiler(cVehiculo* vehiculo, cCliente* cliente);
+	void FinalizarAlquiler();//si la fecha de hoy coincide con tm fecha_devolucion se termina el alquiler
 	void Imprimir();
 	string to_string();
 	cCliente* getCliente();

@@ -1,11 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "cAlquiler.h"
 #include "cCliente.h"
 #include "cVehiculo.h"
+#include <ctime>
+
 
 int main() {
-	tm Fecha = {0};
-	cCliente* cliente1 = new cCliente("32432431", Fecha, "981@gmail.com", "Dario Iv", 1000.89, "1357924680", eVehiculo::Auto);
+	time_t now = time(0);
+	tm* Fecha = localtime(&now);
+	tm Hoy = *Fecha;
+
+	cCliente* cliente1 = new cCliente("32432431", Hoy, "981@gmail.com", "Dario Iv", 1000, "1357924680", eVehiculo::Auto);
 	//cVehiculo* vehiculo1 = new cVehiculo(/**/);
 	//cAlquiler* alquiler1 = new cAlquiler(/**/);
 	//Agregar mas 
