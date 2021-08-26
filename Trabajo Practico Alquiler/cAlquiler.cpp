@@ -126,13 +126,13 @@ void cAlquiler::FinalizarAlquiler()//Fecha de devolucion es un objeto
 		Fecha_Alquiler.tm_mday == Fecha_Devolucion.tm_mday)
 	{
 		this->Vehiculo->setEstado_de_Alquiler(false);
-		Monto_total = Vehiculo->getPrecioBase();
+		//Monto_total = Vehiculo->getPrecioBase();
 		Cliente = NULL;
 	}
 	else
 	{
 		this->Vehiculo->setEstado_de_Alquiler(false);
-		this->CalcularMontoTotal();
+		//this->CalcularMontoTotal();
 		Cliente = NULL;
 
 	}
@@ -147,8 +147,8 @@ void cAlquiler::Imprimir()
 
 string cAlquiler::to_string()
 {
-	string aux = "Fecha de Alquiler: " + tm_to_string(this->Fecha_Alquiler) + "\nFecha de devolución: " + tm_to_string(this->Fecha_Devolucion) + "\nID" + this->ID +
-		"\nMonto total: " + std::to_string(Monto_total) + "\nPagado: " + bool_to_string(this->Pagado);
+	string aux = "Fecha de Alquiler: " + tm_to_string(this->Fecha_Alquiler) + "Fecha de devolucion: " + tm_to_string(this->Fecha_Devolucion) + "ID" + this->ID +
+		"\nMonto total: " + std::to_string(Monto_total) + "\nPagado: " + bool_to_string(this->Pagado)+"\n";
 	return aux;
 }
 

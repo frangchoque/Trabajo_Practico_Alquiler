@@ -1,7 +1,7 @@
 #include "Auxiliar.h"
 string tm_to_string(tm fecha)
 {
-	return std::to_string(fecha.tm_mday) + "/" + std::to_string(fecha.tm_mon) + "/" + std::to_string(fecha.tm_year) + "\n";
+	return std::to_string(fecha.tm_mday) + "/" + std::to_string(fecha.tm_mon) + "/" + std::to_string(fecha.tm_year+1900) + "\n";
 }
 string Vehiculo_to_string(eVehiculo vehiculo)
 {

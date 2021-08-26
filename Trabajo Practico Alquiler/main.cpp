@@ -21,6 +21,8 @@ int main() {
 	cVehiculo* Auto= new cVehiculo(5, eVehiculo::Auto, eColor::Gris);
 	//etc
 	Fecha->tm_yday += 10;
+	Fecha->tm_mday = 4;
+	Fecha->tm_mon = 8;
 	alquiler2->setFechaEntrega(*Fecha);
 	alquiler2->Imprimir();
 	// asi seria
