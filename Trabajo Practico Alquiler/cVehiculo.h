@@ -16,17 +16,22 @@ class cVehiculo
 public:
 	cVehiculo (int cantp,eVehiculo tipo_vehiculo, eColor color);
 	void DevolverVehiculo();
-	void AlquilarVehiculo();
+
 	void VerificacionSeguridad();
 	void VerificacionSeguridad_Pendiente();
 	float CalcularPrecioporDia(eVehiculo v);
 	string GenerarPatente();
+	
 	int getCantp();
 	float getPrecioBase();
 	float getPrecioDia();
+	string getTipoVehiculo();
+
 	bool getEstado_de_Alquiler();
 	bool getEstado_de_Verificacion();
 	void setEstado_de_Alquiler(bool Estado);
+	void setEstado_de_Verificacion(bool estado);
+	
 	string to_string();
 	void Imprimir();
 	~cVehiculo();

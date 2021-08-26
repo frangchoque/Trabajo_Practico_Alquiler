@@ -9,7 +9,7 @@ cCliente::cCliente(string DNI, tm fecha_nacimiento, string mail, string nombre, 
     Plata = plata;
     Telefono = telefono;
     Tipo_Vehiculo = tipo;
-    ID_Alquiler = "0";
+    //ID_Alquiler = "0";
 }
 
 void cCliente::Imprimir()
@@ -19,27 +19,27 @@ void cCliente::Imprimir()
 
 void cCliente::Pagar(cAlquiler* Alquiler)//Acordarse de hacer un método en alquiler que verifique que el cliente pueda pagar
 {
-    if (this->DNI == Alquiler->getCliente()->DNI)
-        Alquiler->setPagado();
-}
-
-void cCliente::AlquilarVehiculo(cAlquiler* alquiler)
-{
-    alquiler->ElegirAuto(this->Tipo_Vehiculo);
-
-}
-
-void cCliente::setID(string id)
-{
-    ID_Alquiler = id;
-}
-
-void cCliente::AsociarAlquiler(cAlquiler* alquiler)
-{
-    if (alquiler != NULL) {
-        setID(alquiler->getID());
+    if (Alquiler != NULL) {
+        if (this->DNI == Alquiler->getCliente()->DNI)// njo se si eso funciona bien, creo que hay que guardar el DNI en una variable de alquiler y comparlos asi
+        {
+            if (Plata > Alquiler->getMontoTotal())
+                Plata - Alquiler->getMontoTotal();
+            Alquiler->setPagado(true);
+            if (Plata < Alquiler->getMontoTotal()) { cout << "\n no tiene la suficiente plata"; }
+        }
+        else cout << "\n No coincide el DNI de la persona con el DNI del Alquiler";
     }
 }
+
+//void cCliente::AlquilarVehiculo(cAlquiler* alquiler)
+//{
+//    alquiler->ElegirAuto(this->Tipo_Vehiculo);
+//
+//}
+
+
+
+    
 
 
 
@@ -51,9 +51,10 @@ string cCliente::to_string()
     return oracion;
 }
 
-eVehiculo cCliente::getTipoVehiculo()
+string cCliente::getTipoVehiculo()
 {
-    return Tipo_Vehiculo;
+   
+    return Vehiculo_to_string(Tipo_Vehiculo);
 }
 
 cCliente::~cCliente()

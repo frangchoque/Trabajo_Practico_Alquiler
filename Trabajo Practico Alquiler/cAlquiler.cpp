@@ -7,7 +7,7 @@ cAlquiler::cAlquiler(string id)
 	Fecha_Devolucion = tm();
 	Pagado = false;
 	Monto_total = 0;
-	cliente = NULL;
+	Cliente = NULL;
 	Vehiculo = NULL;
 }
 
@@ -20,121 +20,132 @@ void cAlquiler::CalcularMontoTotal()
 	Monto_total = Vehiculo->getPrecioBase() + (Vehiculo->getPrecioDia() * this->CalcularDias());
 }
 
-bool cAlquiler::ElegirAuto(eVehiculo vehiculo)
-{ 
-	//no se si esta del todo bien pero seria algo asi, el cliente desencadena todo
-	string aux = Vehiculo_to_string(vehiculo);
-	if (aux == "Moto") {
-		if (Vehiculo->getEstado_de_Alquiler() == true) {
-			cout << "\n La Moto esta alquilada";
-			return false;
-		}
+bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, cCliente* clientes)
+{
+	if (vehiculo != NULL && clientes != NULL) {
+		if (vehiculo->getTipoVehiculo() == clientes->getTipoVehiculo()) {
+			string aux = vehiculo->getTipoVehiculo();
+			if (aux == "Moto") {
+				if (Vehiculo->getEstado_de_Alquiler() == true) {
+					cout << "\n La Moto esta alquilada";
+					vehiculo->setEstado_de_Alquiler(false);
+					return false;// no se pudo
+				}
 
-		if (Vehiculo->getEstado_de_Alquiler() == false) {
-			if (Vehiculo->getEstado_de_Verificacion() == true) {
-				Vehiculo->setEstado_de_Alquiler(true);//se alquilo
-				return true;
-			
-			}
-			if (Vehiculo->getEstado_de_Verificacion() == false) {
-				cout << "/n no se puede alquilar, falta la verificacion ";
-				return false;
-			}
-		}
-	}
-	if (aux == "Auto") {
-		if (Vehiculo->getEstado_de_Alquiler() == true) { cout << "\n El Auto esta alquilada";
-		return false;
-		}
+				if (Vehiculo->getEstado_de_Alquiler() == false) {
+					if (Vehiculo->getEstado_de_Verificacion() == true) {
+						Vehiculo->setEstado_de_Alquiler(true);//se alquilo
+						return true;// se pudo
 
-		if (Vehiculo->getEstado_de_Alquiler() == false) {
-			if (Vehiculo->getEstado_de_Verificacion() == true) {
-				Vehiculo->setEstado_de_Alquiler(true);//se alquilo
-				return true;
+					}
+					if (Vehiculo->getEstado_de_Verificacion() == false) {
+						cout << "/n no se puede alquilar, falta la verificacion ";
+						vehiculo->setEstado_de_Verificacion(true);
+						return false;
+					}
+				}
 			}
-			if (Vehiculo->getEstado_de_Verificacion() == false) {
-				cout << "/n no se puede alquilar, falta la verificacion ";
-				return false;
-			}
-		}
-	}
-	if (aux == "Camioneta") {
-		if (Vehiculo->getEstado_de_Alquiler() == true) { cout << "\n La Camioneta esta alquilada"; 
-		return false;
-		}
+			if (aux == "Auto") {
+				if (Vehiculo->getEstado_de_Alquiler() == true) {
+					cout << "\n El Auto esta alquilada";
+					vehiculo->setEstado_de_Alquiler(false);
+					return false;
+				}
 
-		if (Vehiculo->getEstado_de_Alquiler() == false) {
-			if (Vehiculo->getEstado_de_Verificacion() == true) {
-				Vehiculo->setEstado_de_Alquiler(true);//se alquilo
-				return true;
+				if (Vehiculo->getEstado_de_Alquiler() == false) {
+					if (Vehiculo->getEstado_de_Verificacion() == true) {
+						Vehiculo->setEstado_de_Alquiler(true);//se alquilo
+						return true;
+					}
+					if (Vehiculo->getEstado_de_Verificacion() == false) {
+						cout << "/n no se puede alquilar, falta la verificacion ";
+						vehiculo->setEstado_de_Verificacion(true);
+						return false;
+					}
+				}
 			}
-			if (Vehiculo->getEstado_de_Verificacion() == false) {
-				cout << "/n no se puede alquilar, falta la verificacion ";
-				return false;
-			}
-		}
-	}
-	if (aux == "Bicicleta") {
-		if (Vehiculo->getEstado_de_Alquiler() == true) { cout << "\n La Bicicleta esta alquilada"; 
-		return false;
-		}
+			if (aux == "Camioneta") {
+				if (Vehiculo->getEstado_de_Alquiler() == true) {
+					cout << "\n La Camioneta esta alquilada";
+					vehiculo->setEstado_de_Alquiler(false);
+					return false;
+				}
 
-		if (Vehiculo->getEstado_de_Alquiler() == false) {
-			if (Vehiculo->getEstado_de_Verificacion() == true) {
-				Vehiculo->setEstado_de_Alquiler(true);//se alquilo
-				return true;
+				if (Vehiculo->getEstado_de_Alquiler() == false) {
+					if (Vehiculo->getEstado_de_Verificacion() == true) {
+						Vehiculo->setEstado_de_Alquiler(true);//se alquilo
+						return true;
+					}
+					if (Vehiculo->getEstado_de_Verificacion() == false) {
+						cout << "/n no se puede alquilar, falta la verificacion ";
+						vehiculo->setEstado_de_Verificacion(true);
+						return false;
+					}
+				}
 			}
-			if (Vehiculo->getEstado_de_Verificacion() == false) {
-				cout << "/n no se puede alquilar, falta la verificacion ";
-				return false;
+			if (aux == "Bicicleta") {
+				if (Vehiculo->getEstado_de_Alquiler() == true) {
+					cout << "\n La Bicicleta esta alquilada";
+					vehiculo->setEstado_de_Verificacion(false);
+					return false;
+				}
+
+				if (Vehiculo->getEstado_de_Alquiler() == false) {
+					if (Vehiculo->getEstado_de_Verificacion() == true) {
+						Vehiculo->setEstado_de_Alquiler(true);//se alquilo
+						return true;
+					}
+					if (Vehiculo->getEstado_de_Verificacion() == false) {
+						cout << "/n no se puede alquilar, falta la verificacion ";
+						vehiculo->setEstado_de_Verificacion(true);
+						return false;
+					}
+				}
 			}
 		}
+		cout << "\n No coincide el vehiculo con el que quiere el cliente";
 	}
 
 }
-void cAlquiler::IniciarAlquiler(cVehiculo* vehiculo, cCliente* cliente)
+
+void cAlquiler::IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes) //podemos poner un tm fecha inicio y un tm fecha fin 
 {
-	bool aux=this->ElegirAuto(this->cliente->getTipoVehiculo());
+	/*bool aux=this->ElegirAuto(vehiculo,clientes);
 	if (aux)
 	{
-		this->Vehiculo = vehiculo;
-		this->cliente = cliente;
+		
 	}
 	else
 		return;
-	return;
+	return;*/
 }
 //Crear iniciar alquiler, que le pase un vehiculo y un cliente, verfique que el vehiculo esté en condiciones (ElegirAuto), 
 //señale los punteros a vehiculo y cliente.
 void cAlquiler::FinalizarAlquiler()//Fecha de devolucion es un objeto
 {
-		if (Fecha_Alquiler.tm_year == Fecha_Devolucion.tm_year && Fecha_Alquiler.tm_mon == Fecha_Devolucion.tm_mon &&
-			Fecha_Alquiler.tm_mday == Fecha_Devolucion.tm_mday)
-		{
-			this->Vehiculo->setEstado_de_Alquiler(false);
-			Monto_total = Vehiculo->getPrecioBase();
-			cliente = NULL;
-		}
-		else
-		{
-			this->Vehiculo->setEstado_de_Alquiler(false);
-			this->CalcularMontoTotal();
-			cliente = NULL;
-		}
+	if (Fecha_Alquiler.tm_year == Fecha_Devolucion.tm_year && Fecha_Alquiler.tm_mon == Fecha_Devolucion.tm_mon &&
+		Fecha_Alquiler.tm_mday == Fecha_Devolucion.tm_mday)
+	{
+		this->Vehiculo->setEstado_de_Alquiler(false);
+		Monto_total = Vehiculo->getPrecioBase();
+		Cliente = NULL;
+	}
+	else
+	{
+		this->Vehiculo->setEstado_de_Alquiler(false);
+		this->CalcularMontoTotal();
+		Cliente = NULL;
+
+	}
+	Vehiculo->DevolverVehiculo();
+		//llamar a la funcion pagar de cliente (la funcion tiene que recibir un puntero cliente) o llamrla en el main
 };
 
 void cAlquiler::Imprimir()
 {
-string aux;
-aux= "\n "cliente.getNombre()+" alquilo un/una " +cliente.getTipoVehiculo() + "el dia: " to_string(Fecha_Devolucion) " hasta "+to_string(Fecha_Alquiler) + (this->CalcularDias()"dias")+"\n Numero de alquiler: "+ ID +"Monto total a abonar: "+to_string(Monto_total);
+
 }
-/*cCliente* cliente;
-	tm Fecha_Devolucion;
-	tm Fecha_Alquiler;
-	string ID;//numero de alquiler
-	float Monto_total;
-	bool Pagado;
-	cVehiculo* Vehiculo;*/
+
 string cAlquiler::to_string()
 {
 	return string();
@@ -142,12 +153,12 @@ string cAlquiler::to_string()
 
 cCliente* cAlquiler::getCliente()
 {
-	return this->cliente;
+	return this->Cliente;
 }
 
-void cAlquiler::setPagado()
+void cAlquiler::setPagado(bool algo)
 {
-	Pagado = true;
+	Pagado = algo;
 }
 
 unsigned int cAlquiler::CalcularDias()
@@ -185,8 +196,10 @@ unsigned int cAlquiler::CalcularDias()
 	return cont;
 }
 
-string cAlquiler::getID()
+float cAlquiler::getMontoTotal()
 {
-	return ID;
+	return Monto_total;
 }
+
+
 
