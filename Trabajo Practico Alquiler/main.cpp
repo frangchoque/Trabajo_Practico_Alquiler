@@ -14,22 +14,30 @@ int main() {
 	cCliente* cliente1 = new cCliente("32432431", Hoy, "981@gmail.com", "Dario Iv", 5000, "1357924680", eVehiculo::Auto);
 	cCliente* cliente2 = new cCliente("5698754", Hoy, "algo@gmail.com", "Juan Hernandez ",100000 , "78952498", eVehiculo::Moto);
 
-	cAlquiler* alquiler1 = new cAlquiler("123456");
-	cAlquiler* alquiler2 = new cAlquiler("7835293");
+	cAlquiler* alquiler1 = new cAlquiler("123456", Hoy);
+	cAlquiler* alquiler2 = new cAlquiler("7835293", Hoy);
 
 	cVehiculo* moto = new cVehiculo(2,eVehiculo::Moto,eColor::Blanco);
 	cVehiculo* Auto= new cVehiculo(5, eVehiculo::Auto, eColor::Gris);
 	//etc
-	
+	Fecha->tm_yday += 10;
+	alquiler2->setFechaEntrega(*Fecha);
+	alquiler2->Imprimir();
 	// asi seria
-	alquiler1->IniciarAlquiler(moto,cliente2);// y las fechas
+	alquiler2->IniciarAlquiler(moto,cliente2, cliente2->getTipoVehiculo());// y las fechas
+	cliente2->Pagar(alquiler2);
 	alquiler2->FinalizarAlquiler();
-	cliente2->Pagar(alquiler1);
+	alquiler2->Imprimir();
+	//cliente2->Pagar(alquiler2);
+
+
 
 	delete cliente1;
+	delete cliente2;
 	delete moto;
 	delete Auto;
 	delete alquiler1;
+	delete alquiler2;
 	//terminar de liberar
 	return 0;
 }

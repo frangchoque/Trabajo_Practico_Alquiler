@@ -20,6 +20,7 @@ void cCliente::Imprimir()
 void cCliente::Pagar(cAlquiler *alquiler)//Acordarse de hacer un método en alquiler que verifique que el cliente pueda pagar
 {
     if (alquiler != NULL) {
+        alquiler->CalcularMontoTotal();
         if (this->DNI == alquiler->getCliente()->DNI)// njo se si eso funciona bien, creo que hay que guardar el DNI en una variable de alquiler y comparlos asi
         {
             if (Plata > alquiler->getMontoTotal())

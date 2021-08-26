@@ -17,10 +17,10 @@ class cAlquiler
 	bool Pagado;
 	cVehiculo* Vehiculo;
 public:
-	cAlquiler(string id);
+	cAlquiler(string id, tm Fecha_Alquiler);
 	void CalcularMontoTotal();
 	bool ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo);
-	void IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes);
+	void IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes, string Tipo_Vehiculo);
 	void FinalizarAlquiler();//si la fecha de hoy coincide con tm fecha_devolucion se termina el alquiler
 	void Imprimir();
 	string to_string();
@@ -28,7 +28,10 @@ public:
 	void setPagado(bool algo);
 	unsigned int CalcularDias();
 	float getMontoTotal();
+	void setCliente(cCliente* cliente);
+	void setVehiculo(cVehiculo* vehiculo);
+	void setFechaEntrega(tm fecha);
 	//string getID();
-	virtual ~cAlquiler();
+	~cAlquiler();
 };
 

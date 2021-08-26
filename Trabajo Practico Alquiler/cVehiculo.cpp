@@ -90,7 +90,7 @@ string cVehiculo::getTipoVehiculo()
 
 bool cVehiculo::getEstado_de_Alquiler()
 {
-	return Alquiler;
+	return this->Alquiler;
 }
 
 bool cVehiculo::getEstado_de_Verificacion()

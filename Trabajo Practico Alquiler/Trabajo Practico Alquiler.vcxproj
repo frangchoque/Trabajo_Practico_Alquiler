@@ -145,6 +145,7 @@
     <ClInclude Include="cVehiculo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Auxiliar.cpp" />
     <ClCompile Include="cAlquiler.cpp" />
     <ClCompile Include="cCliente.cpp" />
     <ClCompile Include="cVehiculo.cpp" />
