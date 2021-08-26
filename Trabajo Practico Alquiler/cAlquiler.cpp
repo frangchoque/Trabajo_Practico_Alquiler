@@ -109,14 +109,15 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 	return false;
 }
 
-void cAlquiler::IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes, string Tipo_Vehiculo) //podemos poner un tm fecha inicio y un tm fecha fin 
+bool cAlquiler::IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes, string Tipo_Vehiculo) //podemos poner un tm fecha inicio y un tm fecha fin 
 {
 	if (this->ElegirAuto(vehiculo, Tipo_Vehiculo))
 	{
 		this->Vehiculo = vehiculo;
 		this->Cliente = clientes;
+		return true;
 	}
-	return;
+	return false;
 }
 //Crear iniciar alquiler, que le pase un vehiculo y un cliente, verfique que el vehiculo esté en condiciones (ElegirAuto), 
 //señale los punteros a vehiculo y cliente.
@@ -147,7 +148,7 @@ void cAlquiler::Imprimir()
 
 string cAlquiler::to_string()
 {
-	string aux = "Fecha de Alquiler: " + tm_to_string(this->Fecha_Alquiler) + "Fecha de devolucion: " + tm_to_string(this->Fecha_Devolucion) + "ID" + this->ID +
+	string aux = "\nFecha de Alquiler: " + tm_to_string(this->Fecha_Alquiler) + "Fecha de devolucion: " + tm_to_string(this->Fecha_Devolucion) + "ID" + this->ID +
 		"\nMonto total: " + std::to_string(Monto_total) + "\nPagado: " + bool_to_string(this->Pagado)+"\n";
 	return aux;
 }

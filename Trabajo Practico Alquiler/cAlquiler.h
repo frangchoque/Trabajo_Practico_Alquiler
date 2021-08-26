@@ -20,7 +20,7 @@ public:
 	cAlquiler(string id, tm Fecha_Alquiler);
 	void CalcularMontoTotal();
 	bool ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo);
-	void IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes, string Tipo_Vehiculo);
+	bool IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes, string Tipo_Vehiculo);
 	void FinalizarAlquiler();//si la fecha de hoy coincide con tm fecha_devolucion se termina el alquiler
 	void Imprimir();
 	string to_string();

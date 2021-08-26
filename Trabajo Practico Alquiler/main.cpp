@@ -10,6 +10,7 @@ int main() {
 	time_t now = time(0);
 	tm* Fecha = localtime(&now);
 	tm Hoy = *Fecha;
+	bool aux;
 
 	cCliente* cliente1 = new cCliente("32432431", Hoy, "981@gmail.com", "Dario Iv", 5000, "1357924680", eVehiculo::Auto);
 	cCliente* cliente2 = new cCliente("5698754", Hoy, "algo@gmail.com", "Juan Hernandez ",100000 , "78952498", eVehiculo::Moto);
@@ -25,11 +26,28 @@ int main() {
 	Fecha->tm_mon = 8;
 	alquiler2->setFechaEntrega(*Fecha);
 	alquiler2->Imprimir();
+
+	alquiler1->setFechaEntrega(*Fecha);
+
+	aux=alquiler1->IniciarAlquiler(moto, cliente1, cliente1->getTipoVehiculo());//Como no coinciden, lo que sigue va a fallar
+	if (aux) {
+		cliente1->Pagar(alquiler1);
+		alquiler1->FinalizarAlquiler();
+		alquiler1->Imprimir();
+	}
+	aux = alquiler1->IniciarAlquiler(Auto, cliente1, cliente1->getTipoVehiculo());
+	if (aux) {
+		cliente1->Pagar(alquiler1);
+		alquiler1->FinalizarAlquiler();
+		alquiler1->Imprimir();
+	}
 	// asi seria
-	alquiler2->IniciarAlquiler(moto,cliente2, cliente2->getTipoVehiculo());// y las fechas
-	cliente2->Pagar(alquiler2);
-	alquiler2->FinalizarAlquiler();
-	alquiler2->Imprimir();
+	aux=alquiler2->IniciarAlquiler(moto,cliente2, cliente2->getTipoVehiculo());
+	if (aux) {
+		cliente2->Pagar(alquiler2);
+		alquiler2->FinalizarAlquiler();
+		alquiler2->Imprimir();
+	}
 	//cliente2->Pagar(alquiler2);
 
 
