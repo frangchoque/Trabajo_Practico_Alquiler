@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
-#include <time.h>
+//#include <time.h>
 #include "Auxiliar.h"
-using namespace std;
+//using namespace std;
+
+
+
 class cVehiculo
 {
 	string Patente;

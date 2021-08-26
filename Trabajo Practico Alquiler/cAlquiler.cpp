@@ -20,10 +20,10 @@ void cAlquiler::CalcularMontoTotal()
 	Monto_total = Vehiculo->getPrecioBase() + (Vehiculo->getPrecioDia() * this->CalcularDias());
 }
 
-bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, cCliente* clientes)
+bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el tipo de vehiculo del cliente
 {
-	if (vehiculo != NULL && clientes != NULL) {
-		if (vehiculo->getTipoVehiculo() == clientes->getTipoVehiculo()) {
+	if (vehiculo != NULL) {
+		if (vehiculo->getTipoVehiculo() == Tipo_Vehiculo) {
 			string aux = vehiculo->getTipoVehiculo();
 			if (aux == "Moto") {
 				if (Vehiculo->getEstado_de_Alquiler() == true) {
@@ -104,8 +104,9 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, cCliente* clientes)
 			}
 		}
 		cout << "\n No coincide el vehiculo con el que quiere el cliente";
+		return false;
 	}
-
+	return false;
 }
 
 void cAlquiler::IniciarAlquiler(cVehiculo* vehiculo, cCliente* clientes) //podemos poner un tm fecha inicio y un tm fecha fin 
@@ -143,12 +144,14 @@ void cAlquiler::FinalizarAlquiler()//Fecha de devolucion es un objeto
 
 void cAlquiler::Imprimir()
 {
-
+	cout << to_string() << endl;
 }
 
 string cAlquiler::to_string()
 {
-	return string();
+	string aux = "Fecha de Alquiler: " + tm_to_string(this->Fecha_Alquiler) + "\nFecha de devolución: " + tm_to_string(this->Fecha_Devolucion) + "\nID" + this->ID +
+		"\nMonto total: " + std::to_string(Monto_total) + "\nPagado: " + bool_to_string(this->Pagado);
+	return aux;
 }
 
 cCliente* cAlquiler::getCliente()

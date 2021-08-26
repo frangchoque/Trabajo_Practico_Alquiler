@@ -17,15 +17,15 @@ void cCliente::Imprimir()
     cout <<to_string() << endl;
 }
 
-void cCliente::Pagar(cAlquiler* Alquiler)//Acordarse de hacer un método en alquiler que verifique que el cliente pueda pagar
+void cCliente::Pagar(cAlquiler *alquiler)//Acordarse de hacer un método en alquiler que verifique que el cliente pueda pagar
 {
-    if (Alquiler != NULL) {
-        if (this->DNI == Alquiler->getCliente()->DNI)// njo se si eso funciona bien, creo que hay que guardar el DNI en una variable de alquiler y comparlos asi
+    if (alquiler != NULL) {
+        if (this->DNI == alquiler->getCliente()->DNI)// njo se si eso funciona bien, creo que hay que guardar el DNI en una variable de alquiler y comparlos asi
         {
-            if (Plata > Alquiler->getMontoTotal())
-                Plata - Alquiler->getMontoTotal();
-            Alquiler->setPagado(true);
-            if (Plata < Alquiler->getMontoTotal()) { cout << "\n no tiene la suficiente plata"; }
+            if (Plata > alquiler->getMontoTotal())
+                Plata -= alquiler->getMontoTotal();
+            alquiler->setPagado(true);
+            if (Plata < alquiler->getMontoTotal()) { cout << "\n no tiene la suficiente plata"; }
         }
         else cout << "\n No coincide el DNI de la persona con el DNI del Alquiler";
     }

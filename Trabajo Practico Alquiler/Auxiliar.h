@@ -20,7 +20,7 @@ enum class eVehiculo { Auto, Moto, Camioneta, Bicicleta }; typedef eVehiculo Veh
 
 string tm_to_string(tm fecha)
 {
-	return to_string(fecha.tm_mday) + "/" + to_string(fecha.tm_mon) + "/" + to_string(fecha.tm_year) + "/";
+	return std::to_string(fecha.tm_mday) + "/" + std::to_string(fecha.tm_mon) + "/" + std::to_string(fecha.tm_year) + "\n";
 }
 string Vehiculo_to_string(eVehiculo vehiculo)
 {

@@ -1,5 +1,6 @@
 #include "cVehiculo.h"
 
+
 cVehiculo::cVehiculo(int cantp,eVehiculo tipo_vehiculo , eColor color)
 {
 	this->Tipo_Vehiculo = tipo_vehiculo;
@@ -66,6 +67,11 @@ string cVehiculo::GenerarPatente()
 	return aux = "ABC" + aux1 + aux2 + aux3;
 }
 
+
+int cVehiculo::getCantp()
+{
+	return CantPasajeros;
+}
 
 float cVehiculo::getPrecioBase()
 {

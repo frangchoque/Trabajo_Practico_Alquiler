@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 #include <iostream>
-//class cAlquiler;
 #include "cAlquiler.h"
 #include "Auxiliar.h"
+//class cAlquiler;
 using namespace std;
 
 class cCliente
@@ -21,7 +21,7 @@ private:
 public://Probar tener un objeto puntero alquiler para poder usar los métodos
 	cCliente(string , tm , string , string , float , string , eVehiculo tipo);
 	void Imprimir();
-	void Pagar(cAlquiler* Alquiler);
+	void Pagar(cAlquiler* alquiler);
 	//void AlquilarVehiculo(cAlquiler* alquiler);
 	//void setID(string id);
 	//void AsociarAlquiler(cAlquiler* alquiler);
