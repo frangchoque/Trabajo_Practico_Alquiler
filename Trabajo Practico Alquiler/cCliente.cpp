@@ -28,9 +28,13 @@ void cCliente::Pagar(cAlquiler *alquiler)//Acordarse de hacer un método en alqui
                 Plata -= alquiler->getMontoTotal();
                 alquiler->setPagado(true);
             }
-            if (Plata < alquiler->getMontoTotal()) { cout << "\nNo tiene la suficiente plata"; }
+            if (Plata < alquiler->getMontoTotal()) {
+                return;//cout << "\nNo tiene la suficiente plata"; }
+            }
+            else {
+                return;//cout << "\n No coincide el DNI de la persona con el DNI del Alquiler";
+            }
         }
-        else cout << "\n No coincide el DNI de la persona con el DNI del Alquiler";
     }
 }
 
@@ -39,12 +43,6 @@ void cCliente::Pagar(cAlquiler *alquiler)//Acordarse de hacer un método en alqui
 //    alquiler->ElegirAuto(this->Tipo_Vehiculo);
 //
 //}
-
-
-
-    
-
-
 
 string cCliente::to_string()
 {

@@ -33,5 +33,6 @@ public:
 	void setFechaEntrega(tm fecha);
 	//string getID();
 	~cAlquiler();
+	bool getPagado() { return Pagado; };
 };
 

@@ -23,6 +23,7 @@ void cVehiculo::DevolverVehiculo()
 void cVehiculo::VerificacionSeguridad()
 {
 	if (Verificado == true) {
+		
 		cout << "\n El vehiculo ya estaba verificado";
 	}
 	if (Verificado == false) {
@@ -61,9 +62,9 @@ string cVehiculo::GenerarPatente()
 {
 	string aux;
 	srand(time(NULL));
-	int aux1 = (rand() % 5) + 1;
-	int aux2 = (rand() % 5);
-	int aux3 = (rand() % 5) + 1;
+	int aux1 = (rand() % 9) + 1;
+	int aux2 = (rand() % 9);
+	int aux3 = (rand() % 9) + 1;
 	aux = "ABC" + std::to_string(aux1) + std::to_string(aux2) + std::to_string(aux3);
 	return aux;
 }

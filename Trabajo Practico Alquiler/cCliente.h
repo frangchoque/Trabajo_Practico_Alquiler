@@ -27,7 +27,6 @@ public://Probar tener un objeto puntero alquiler para poder usar los métodos
 	//void AsociarAlquiler(cAlquiler* alquiler);
 	string to_string();
 	string getTipoVehiculo();
-	~cCliente();//¿Borrar el virtual? si , no vimos polimorfismo todavia 
-
+	~cCliente();
 };
 

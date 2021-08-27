@@ -27,7 +27,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 			string aux = vehiculo->getTipoVehiculo();
 			if (aux == "Moto") {
 				if (vehiculo->getEstado_de_Alquiler() == true) {
-					cout << "\n La Moto esta alquilada";
+					//cout << "\n La Moto esta alquilada";
 					vehiculo->setEstado_de_Alquiler(false);
 					return false;// no se pudo
 				}
@@ -39,7 +39,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 
 					}
 					if (vehiculo->getEstado_de_Verificacion() == false) {
-						cout << "/n no se puede alquilar, falta la verificacion ";
+						//cout << "/n no se puede alquilar, falta la verificacion ";
 						vehiculo->setEstado_de_Verificacion(true);
 						return false;
 					}
@@ -47,7 +47,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 			}
 			if (aux == "Auto") {
 				if (vehiculo->getEstado_de_Alquiler() == true) {
-					cout << "\n El Auto esta alquilada";
+					//cout << "\n El Auto esta alquilada";
 					vehiculo->setEstado_de_Alquiler(false);
 					return false;
 				}
@@ -58,7 +58,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 						return true;
 					}
 					if (vehiculo->getEstado_de_Verificacion() == false) {
-						cout << "/n no se puede alquilar, falta la verificacion ";
+						//cout << "/n no se puede alquilar, falta la verificacion ";
 						vehiculo->setEstado_de_Verificacion(true);
 						return false;
 					}
@@ -66,7 +66,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 			}
 			if (aux == "Camioneta") {
 				if (vehiculo->getEstado_de_Alquiler() == true) {
-					cout << "\n La Camioneta esta alquilada";
+					//cout << "\n La Camioneta esta alquilada";
 					vehiculo->setEstado_de_Alquiler(false);
 					return false;
 				}
@@ -77,7 +77,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 						return true;
 					}
 					if (vehiculo->getEstado_de_Verificacion() == false) {
-						cout << "/n no se puede alquilar, falta la verificacion ";
+						//cout << "/n no se puede alquilar, falta la verificacion ";
 						vehiculo->setEstado_de_Verificacion(true);
 						return false;
 					}
@@ -85,7 +85,7 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 			}
 			if (aux == "Bicicleta") {
 				if (vehiculo->getEstado_de_Alquiler() == true) {
-					cout << "\n La Bicicleta esta alquilada";
+					//cout << "\n La Bicicleta esta alquilada";
 					vehiculo->setEstado_de_Verificacion(false);
 					return false;
 				}
@@ -96,14 +96,14 @@ bool cAlquiler::ElegirAuto(cVehiculo* vehiculo, string Tipo_Vehiculo)//Recibe el
 						return true;
 					}
 					if (vehiculo->getEstado_de_Verificacion() == false) {
-						cout << "/n no se puede alquilar, falta la verificacion ";
+						//cout << "/n no se puede alquilar, falta la verificacion ";
 						vehiculo->setEstado_de_Verificacion(true);
 						return false;
 					}
 				}
 			}
 		}
-		cout << "\n No coincide el vehiculo con el que quiere el cliente";
+		//cout << "\n No coincide el vehiculo con el que quiere el cliente";
 		return false;
 	}
 	return false;
