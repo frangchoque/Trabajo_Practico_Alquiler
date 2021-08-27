@@ -21,7 +21,7 @@ int main() {
 	cVehiculo* moto = new cVehiculo(2,eVehiculo::Moto,eColor::Blanco);
 	cVehiculo* Auto= new cVehiculo(5, eVehiculo::Auto, eColor::Gris);
 	//etc
-	Fecha->tm_yday += 10;
+	Fecha->tm_yday += 9;
 	Fecha->tm_mday = 4;
 	Fecha->tm_mon = 8;
 	alquiler2->setFechaEntrega(*Fecha);
@@ -48,6 +48,8 @@ int main() {
 		alquiler2->FinalizarAlquiler();
 		alquiler2->Imprimir();
 	}
+	cliente1->Imprimir();
+	Auto->Imprimir();
 	//cliente2->Pagar(alquiler2);
 
 

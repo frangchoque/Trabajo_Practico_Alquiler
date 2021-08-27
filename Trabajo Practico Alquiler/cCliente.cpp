@@ -24,9 +24,11 @@ void cCliente::Pagar(cAlquiler *alquiler)//Acordarse de hacer un método en alqui
         if (this->DNI == alquiler->getCliente()->DNI)// njo se si eso funciona bien, creo que hay que guardar el DNI en una variable de alquiler y comparlos asi
         {
             if (Plata > alquiler->getMontoTotal())
+            {
                 Plata -= alquiler->getMontoTotal();
-            alquiler->setPagado(true);
-            if (Plata < alquiler->getMontoTotal()) { cout << "\n no tiene la suficiente plata"; }
+                alquiler->setPagado(true);
+            }
+            if (Plata < alquiler->getMontoTotal()) { cout << "\nNo tiene la suficiente plata"; }
         }
         else cout << "\n No coincide el DNI de la persona con el DNI del Alquiler";
     }

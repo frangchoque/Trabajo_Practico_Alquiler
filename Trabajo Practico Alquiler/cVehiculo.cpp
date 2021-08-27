@@ -5,7 +5,7 @@ cVehiculo::cVehiculo(int cantp,eVehiculo tipo_vehiculo , eColor color)
 {
 	this->Tipo_Vehiculo = tipo_vehiculo;
 	this->Color = color;
-	Patente = GenerarPatente();
+	Patente = this->GenerarPatente();
 	this->CantPasajeros = cantp;
 	PrecioBase = 1000;
 	PrecioDia = CalcularPrecioporDia(tipo_vehiculo);
@@ -64,7 +64,8 @@ string cVehiculo::GenerarPatente()
 	int aux1 = (rand() % 5) + 1;
 	int aux2 = (rand() % 5);
 	int aux3 = (rand() % 5) + 1;
-	return aux = "ABC" + aux1 + aux2 + aux3;
+	aux = "ABC" + std::to_string(aux1) + std::to_string(aux2) + std::to_string(aux3);
+	return aux;
 }
 
 
@@ -115,7 +116,7 @@ cVehiculo::~cVehiculo()
 string cVehiculo::to_string()
 {
 	string aux = "\nPatente: " + this->Patente + "\nTipo de vehiculo: " + Vehiculo_to_string(Tipo_Vehiculo) + "\nColor: " + Color_to_string(this->Color) +
-		"\nCantidad de pasajeros: " + std::to_string(this->CantPasajeros) + "\nPrecio base: " + std::to_string(this->PrecioBase) + "\n Precio dia: "
+		"\nCantidad de pasajeros: " + std::to_string(this->CantPasajeros) + "\nPrecio base: " + std::to_string(this->PrecioBase) + "\nPrecio dia: "
 		+ std::to_string(this->PrecioDia) + "\nAlquilado: " + bool_to_string(this->Alquiler) + "\nVerificacion de seguridad: " + bool_to_string(this->Verificado);
 	return aux;
 }
